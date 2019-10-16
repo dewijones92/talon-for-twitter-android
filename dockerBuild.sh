@@ -1,2 +1,15 @@
 #!/bin/bash
-docker run --name docker_android_build -v gradle:"/root/.gradle" -v `pwd`:/project mingc/android-build-box  bash -c 'cd /project; ./gradlew build'
+
+
+CONTAINER_NAME="docker_android_build"
+SECRET_DIR="/home/vagrant/release_key"
+PROJECT_DIR="/project"
+RELEASE_KEY_FILENAME="my-release_key.jks"
+KEYSTORE_FILE_NAME="keystore.properties"
+echo "111"
+echo "$SECRET_DIR/$RELEASE_KEY_FILENAME"
+echo "222"
+
+docker run -it -d --name $CONTAINER_NAME -v $SECRET_DIR/$RELEASE_KEY_FILENAME:$PROJECT_DIR/$RELEASE_KEY_FILENAME:ro -v $SECRET_DIR/$KEYSTORE_FILE_NAME:$PROJECT_DIR/$KEYSTORE_FILE_NAME:ro -v gradle:"/root/.gradle" -v `pwd`:$PROJECT_DIR mingc/android-build-box  bash
+
+docker exec -it $CONTAINER_NAME bash -c 'cd /project; ./gradlew build' 
