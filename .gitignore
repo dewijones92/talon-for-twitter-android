@@ -104,3 +104,12 @@ lint/tmp/
 
 # Android Profiling
 *.hprof
+# Eclipse project files
+.classpath
+.project
+
+.settings/
+app/.settings/
+searchview/.settings/
+shared_assets/.settings/
+wear/.settings/
