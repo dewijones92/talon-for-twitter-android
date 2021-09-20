@@ -375,7 +375,7 @@ public class AppSettings {
         favoriteUserNotifications = sharedPrefs.getBoolean("favorite_users_notifications", true);
         syncSecondMentions = sharedPrefs.getBoolean("sync_second_mentions", true);
         displayScreenName = sharedPrefs.getBoolean("display_screen_name", false);
-        inAppBrowser = sharedPrefs.getBoolean("inapp_browser", true);
+        inAppBrowser = sharedPrefs.getBoolean("inapp_browser", false);
         showBoth = sharedPrefs.getBoolean("both_handle_name", false);
         timelineNot = sharedPrefs.getBoolean("timeline_notifications", false);
         mentionsNot = sharedPrefs.getBoolean("mentions_notifications", true);
